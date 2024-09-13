@@ -1,11 +1,11 @@
 import { CoursePart } from "src/types";
 import { Part } from "src/components";
 
-type ContentProps = {
+type Props = {
   parts: CoursePart[];
 };
 
-export const Content = ({ parts }: ContentProps) => {
+export const Content = ({ parts }: Props) => {
   return (
     <ul>
       {parts.map((part) => (

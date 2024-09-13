@@ -1,10 +1,10 @@
 import { CoursePart } from "src/types";
 
-type PartProps = {
+type Props = {
   part: CoursePart;
 };
 
-export const Part = ({ part }: PartProps) => {
+export const Part = ({ part }: Props) => {
   return (
     <li>
       {part.name} - {part.exercises} exercises
