@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { FeedbackSection } from "src/components";
+import { Feedback } from "src/types";
 
 const App = () => {
-  // save clicks of each button to its own state
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
+  const handleFeedback = (val: Feedback) => {
+    console.log(val); // good, neutral, bad
+  };
 
-  return <div>code here</div>;
+  return (
+    <main>
+      <FeedbackSection onFeedback={handleFeedback} />
+    </main>
+  );
 };
 
 export default App;
