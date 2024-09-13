@@ -1,4 +1,4 @@
-import { Part } from "..";
+import { Part } from "src/components";
 
 type ContentProps = {
   part1: string;

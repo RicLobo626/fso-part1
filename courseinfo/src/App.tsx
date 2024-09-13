@@ -1,4 +1,4 @@
-import { Header, Total, Content } from "./components";
+import { Header, Total, Content } from "src/components";
 
 const App = () => {
   const course = "Half Stack application development";
