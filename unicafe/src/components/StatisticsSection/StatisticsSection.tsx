@@ -12,7 +12,7 @@ export const StatisticsSection = ({ feedbackCounts }: Props) => {
 
   return (
     <section>
-      <h1>Statistics</h1>
+      <h2>Statistics</h2>
 
       {total <= 0 && <p>No feedback given</p>}
 
