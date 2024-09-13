@@ -16,6 +16,8 @@ const App = () => {
   const [votes, setVotes] = useState(Array(anecdotes.length).fill(0));
   const [selectedIdx, setSelectedIdx] = useState(0);
 
+  const topVotedIdx = votes.indexOf(Math.max(...votes));
+
   const handleNext = () => {
     const updateSelected = (prev: number) => {
       const randomIdx = Math.floor(Math.random() * anecdotes.length);
@@ -48,6 +50,15 @@ const App = () => {
 
         <Button onClick={handleVote} text="Vote" />
         <Button onClick={handleNext} text="Next anecdote" />
+      </section>
+
+      <section>
+        <h2>Anecdote with most votes</h2>
+
+        <AnecdoteDisplay
+          anecdote={anecdotes[topVotedIdx]}
+          votes={votes[topVotedIdx]}
+        />
       </section>
     </main>
   );
