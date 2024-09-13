@@ -1,12 +1,13 @@
+import { CoursePart } from "src/types";
+
 type PartProps = {
-  name: string;
-  exercises: number;
+  part: CoursePart;
 };
 
-export const Part = ({ name, exercises }: PartProps) => {
+export const Part = ({ part }: PartProps) => {
   return (
     <li>
-      {name} - {exercises} exercises
+      {part.name} - {part.exercises} exercises
     </li>
   );
 };

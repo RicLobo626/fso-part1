@@ -1,27 +1,16 @@
+import { CoursePart } from "src/types";
 import { Part } from "src/components";
 
 type ContentProps = {
-  part1: string;
-  part2: string;
-  part3: string;
-  exercises1: number;
-  exercises2: number;
-  exercises3: number;
+  parts: CoursePart[];
 };
 
-export const Content = ({
-  part1,
-  part2,
-  part3,
-  exercises1,
-  exercises2,
-  exercises3,
-}: ContentProps) => {
+export const Content = ({ parts }: ContentProps) => {
   return (
     <ul>
-      <Part name={part1} exercises={exercises1} />
-      <Part name={part2} exercises={exercises2} />
-      <Part name={part3} exercises={exercises3} />
+      {parts.map((part) => (
+        <Part part={part} key={part.name} />
+      ))}
     </ul>
   );
 };
