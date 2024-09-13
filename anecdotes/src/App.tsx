@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "src/components";
+import { AnecdoteDisplay, Button } from "src/components";
 
 const App = () => {
   const anecdotes = [
@@ -13,36 +13,42 @@ const App = () => {
     "The only way to go fast, is to go well.",
   ];
 
-  const [selected, setSelected] = useState(0);
   const [votes, setVotes] = useState(Array(anecdotes.length).fill(0));
+  const [selectedIdx, setSelectedIdx] = useState(0);
 
-  const handleNextAnecdote = () => {
-    const getRandomAnecdote = () => {
+  const handleNext = () => {
+    const updateSelected = (prev: number) => {
       const randomIdx = Math.floor(Math.random() * anecdotes.length);
 
-      if (randomIdx === selected) {
-        return getRandomAnecdote();
+      if (randomIdx === prev) {
+        return updateSelected(prev);
       }
 
       return randomIdx;
     };
 
-    setSelected(getRandomAnecdote());
+    setSelectedIdx(updateSelected);
   };
 
   const handleVote = () => {
     setVotes((prev) => {
-      return prev.map((vote, idx) => (idx === selected ? vote + 1 : vote));
+      return prev.map((vote, idx) => (idx === selectedIdx ? vote + 1 : vote));
     });
   };
 
   return (
     <main>
-      <p>{anecdotes[selected]}</p>
-      <p>Has {votes[selected]} votes</p>
+      <section>
+        <h1>Anecdote of the day</h1>
 
-      <Button onClick={handleVote} text="Vote" />
-      <Button onClick={handleNextAnecdote} text="Next anecdote" />
+        <AnecdoteDisplay
+          anecdote={anecdotes[selectedIdx]}
+          votes={votes[selectedIdx]}
+        />
+
+        <Button onClick={handleVote} text="Vote" />
+        <Button onClick={handleNext} text="Next anecdote" />
+      </section>
     </main>
   );
 };
