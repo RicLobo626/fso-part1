@@ -1,10 +1,9 @@
-import { MouseEvent } from "react";
+import { ButtonHTMLAttributes } from "react";
 
-type Props = {
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   text: string;
-  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
-export const Button = ({ text, onClick }: Props) => {
-  return <button onClick={onClick}>{text}</button>;
+export const Button = ({ text, ...props }: Props) => {
+  return <button {...props}>{text}</button>;
 };
