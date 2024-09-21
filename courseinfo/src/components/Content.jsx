@@ -1,12 +1,6 @@
-import { CoursePart } from "src/types";
-
 /*** Part ***/
 
-type PartProps = {
-  part: CoursePart;
-};
-
-export const Part = ({ part }: PartProps) => {
+export const Part = ({ part }) => {
   return (
     <li>
       {part.name} - {part.exercises} exercises
@@ -16,11 +10,7 @@ export const Part = ({ part }: PartProps) => {
 
 /*** Content ***/
 
-type ContentProps = {
-  parts: CoursePart[];
-};
-
-export const Content = ({ parts }: ContentProps) => {
+export const Content = ({ parts }) => {
   return (
     <ul>
       {parts.map((part) => (

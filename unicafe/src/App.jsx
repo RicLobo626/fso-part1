@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { FeedbackSection, StatisticsSection } from "src/components";
-import { Feedback, FeedbackCounts } from "src/types";
+import { FeedbackSection, StatisticsSection } from "./components";
 
 const App = () => {
-  const [feedbackCounts, setFeedbackCounts] = useState<FeedbackCounts>({
+  const [feedbackCounts, setFeedbackCounts] = useState({
     good: 0,
     neutral: 0,
     bad: 0,
   });
 
-  const handleFeedback = (feedback: Feedback) => {
+  const handleFeedback = (feedback) => {
     setFeedbackCounts((prev) => ({ ...prev, [feedback]: prev[feedback] + 1 }));
   };
 

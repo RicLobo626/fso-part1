@@ -1,9 +1,4 @@
-type Props = {
-  anecdote: string;
-  votes: number;
-};
-
-export const AnecdoteDisplay = ({ anecdote, votes }: Props) => {
+export const AnecdoteDisplay = ({ anecdote, votes }) => {
   return (
     <section>
       <h1>Anecdote of the day</h1>

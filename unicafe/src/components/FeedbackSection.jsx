@@ -1,11 +1,6 @@
-import { Button } from "src/components";
-import { Feedback } from "src/types";
+import { Button } from ".";
 
-type Props = {
-  onFeedback: (feedback: Feedback) => void;
-};
-
-export const FeedbackSection = ({ onFeedback }: Props) => {
+export const FeedbackSection = ({ onFeedback }) => {
   const handleClickGood = () => onFeedback("good");
   const handleClickNeutral = () => onFeedback("neutral");
   const handleClickBad = () => onFeedback("bad");

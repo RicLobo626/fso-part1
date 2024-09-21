@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnecdoteDisplay, Button } from "src/components";
+import { AnecdoteDisplay, Button } from "./components";
 
 const App = () => {
   const anecdotes = [
@@ -19,7 +19,7 @@ const App = () => {
   const topVotedIdx = votes.indexOf(Math.max(...votes));
 
   const handleNext = () => {
-    const updateSelected = (prev: number) => {
+    const updateSelected = (prev) => {
       const randomIdx = Math.floor(Math.random() * anecdotes.length);
 
       if (randomIdx === prev) {

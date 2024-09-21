@@ -1,13 +1,6 @@
-import { FeedbackCounts } from "src/types";
-
 /*** StatisticLine ***/
 
-type StatisticLineProps = {
-  text: string;
-  value: number;
-};
-
-export const StatisticLine = ({ text, value }: StatisticLineProps) => {
+export const StatisticLine = ({ text, value }) => {
   return (
     <tr>
       <td>{text}</td>
@@ -18,19 +11,7 @@ export const StatisticLine = ({ text, value }: StatisticLineProps) => {
 
 /*** StatisticsTable ***/
 
-type StatisticsTableProps = {
-  feedbackCounts: FeedbackCounts;
-  total: number;
-  average: number;
-  positive: number;
-};
-
-export const StatisticsTable = ({
-  feedbackCounts,
-  total,
-  average,
-  positive,
-}: StatisticsTableProps) => {
+export const StatisticsTable = ({ feedbackCounts, total, average, positive }) => {
   return (
     <table>
       <thead>
@@ -54,11 +35,7 @@ export const StatisticsTable = ({
 
 /*** StatisticsSection ***/
 
-type StatisticsSectionProps = {
-  feedbackCounts: FeedbackCounts;
-};
-
-export const StatisticsSection = ({ feedbackCounts }: StatisticsSectionProps) => {
+export const StatisticsSection = ({ feedbackCounts }) => {
   const total = Object.values(feedbackCounts).reduce((acc, curr) => acc + curr, 0);
   const average = (feedbackCounts.good - feedbackCounts.bad) / total || 0;
   const positive = (feedbackCounts.good / total) * 100 || 0;

@@ -1,4 +1,4 @@
-import { Header, Total, Content } from "src/components";
+import { Header, Total, Content } from "./components";
 
 const App = () => {
   const course = {
